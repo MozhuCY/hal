@@ -5,6 +5,7 @@ on:
 #  create:
 #    tags:
 #      - v*
+  workflow_dispatch:
 
 jobs:
   build-test:
@@ -119,8 +120,8 @@ jobs:
           CCACHE_COMPRESSLEVEL: 6
           CCACHE_MAXSIZE: 500M
 
-#      - name: Setup tmate session
-#        uses: mxschmitt/action-tmate@v1
+       - name: Setup tmate session
+         uses: mxschmitt/action-tmate@v1
 
       - name: Test
         shell: bash
