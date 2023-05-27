@@ -1,10 +1,6 @@
 name: Ubuntu 20.04
 
-on:
-  push:
-#  create:
-#    tags:
-#      - v*
+on: workflow_dispatch
 
 jobs:
   build_ubuntu_20_04:
@@ -105,6 +101,9 @@ jobs:
           CCACHE_COMPRESSLEVEL: 6
           CCACHE_MAXSIZE: 400M
           HAL_BASE_PATH: ${{runner.workspace}}/hal/build
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v1
 
       - name: Test
         shell: bash
